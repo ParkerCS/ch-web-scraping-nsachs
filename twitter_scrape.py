@@ -5,3 +5,17 @@
 # Use BeautifulSoup and urllib to grab the text contents of the tweets
 # located on the twitter page you chose.  The .text attribute will supply the content of a soup object.
 # Have fun.  Again, nothing explicit. (15pts)
+
+import urllib.request
+from bs4 import BeautifulSoup
+
+url = "https://twitter.com/SophiaBush?lang=en"
+page = urllib.request.urlopen(url)
+soup = BeautifulSoup(page.read(), "html.parser")
+soup.prettify()
+
+data = [[y.text.strip() for y in x.findAll("li")] for x in soup.findAll("p", {"class":"class= TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"})]
+
+print(data[1:])
+
+#data = [[y.text.strip() for y in x.findAll("li")] for x in soup.findAll("ol")]
