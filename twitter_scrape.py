@@ -14,8 +14,14 @@ page = urllib.request.urlopen(url)
 soup = BeautifulSoup(page.read(), "html.parser")
 soup.prettify()
 
-data = [[y.text.strip() for y in x.findAll("li")] for x in soup.findAll("p", {"class":"class= TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"})]
-
-print(data[1:])
-
 #data = [[y.text.strip() for y in x.findAll("li")] for x in soup.findAll("ol")]
+#data = [x.text.strip() for x in soup.findAll("p", {"class":"TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"})]
+data = [x.text.strip() for x in soup.findAll("p", {"class": "js-tweet-text"})]
+
+print("Sophia Bush's Instagram: ")
+print()
+
+for i in data:
+    print(i)
+    print()
+
