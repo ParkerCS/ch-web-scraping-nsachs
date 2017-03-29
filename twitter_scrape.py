@@ -18,12 +18,16 @@ soup.prettify()
 #data = [x.text.strip() for x in soup.findAll("p", {"class":"TweetTextSize TweetTextSize--26px js-tweet-text tweet-text"})]
 data = [x.text.strip() for x in soup.findAll("p", {"class": "js-tweet-text"})]
 
-print("Sophia Bush's Instagram: ")
+print("Sophia Bush's Twitter: ")
 print()
 
 for i in data:
     print(i)
     print()
+
+
+
+
 
 
 
